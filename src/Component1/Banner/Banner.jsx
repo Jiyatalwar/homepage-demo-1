@@ -5,7 +5,7 @@ import { BiRightTopArrowCircle } from "react-icons/bi";
 
 const Banner = () => {
   return (
-    <section className="bg-[url('binary-img/modern-technology-circuit-board-close-up-abstract-2026-09-22-21-27-25-utc.jpg')] bg-cover bg-center bg-no-repeat h-[600px] sm:h-[1200px] lg:h-[660px] xl:h-[800px] flex items-center relative z-10 overflow-hidden">
+    <section className="bg-[url('/binary-img/modern-technology-circuit-board-close-up-abstract-2026-09-22-21-27-25-utc.jpg')] bg-cover bg-center bg-no-repeat h-[600px] sm:h-[1200px] lg:h-[660px] xl:h-[800px] flex items-center relative z-10 overflow-hidden">
       <div className="Container">
         <div className="grid lg:grid-cols-2 items-center gap-16 lg:gap-0">
           {/* banner content hero  */}
