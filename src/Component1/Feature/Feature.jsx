@@ -12,9 +12,9 @@ const processData = [
     featureIcon: featureIcon,
     featureshape: featureshape,
     featureshape2: featureshape2,
-    featureTitle: "22+ Year Experience",
+    featureTitle: "XXX+ Cr Turnover",
     featureDesc:
-      "Monotonically synergize grants to business visualize strategic infomediaries",
+      "",
     featureUrl: "/service",
     featureBtn: "Read More",
   },
@@ -23,9 +23,9 @@ const processData = [
     featureIcon: featureIcon2,
     featureshape: featureshape,
     featureshape2: featureshape2,
-    featureTitle: "Dedicated Members",
+    featureTitle: "XX+ Locations",
     featureDesc:
-      "Monotonically synergize grants to business visualize strategic infomediaries",
+      "",
     featureUrl: "/service",
     featureBtn: "Read More",
   },
@@ -36,7 +36,7 @@ const processData = [
     featureshape2: featureshape2,
     featureTitle: "Valuable Supports",
     featureDesc:
-      "Monotonically synergize grants to business visualize strategic infomediaries",
+      "",
     featureUrl: "/service",
     featureBtn: "Read More",
   },
