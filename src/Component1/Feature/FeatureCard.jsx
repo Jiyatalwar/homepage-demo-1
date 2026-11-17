@@ -78,7 +78,7 @@ const FeatureCard = ({
         <button className="font-Nunito font-medium text-white opacity-0 transition-all duration-500 group-hover:opacity-100">
           {featureBtn}
         </button>
-      </Link>
+      </Link> 
     </div>
   );
 };

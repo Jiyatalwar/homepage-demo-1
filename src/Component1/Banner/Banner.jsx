@@ -21,9 +21,9 @@ const slides = [
     descLine1: "Unlock Cloud Potential with Infrastructure Designed for",
     descLine2: "Speed, Scale, and Operational Excellence.",
   },
-  {
+   {
     bgImage:
-      "/binary-img/futuristic-computer-keyboard-and-connection-networ-2026-09-25-08-17-09-utc.jpg",
+      "/binary-img/abstract-technology-circuit-board-in-blue-and-pink-2026-09-23-22-26-05-utc.jpg",
     titleLine1: "Secure. Detect. ",
     titleLine2: "Respond.Cybersecurity Without Compromise.",
     descLine1: "Safeguard mission-critical workloads with zero-trust defenseEnable secure growth with intelligent cybersecurity solutions that,",
@@ -35,10 +35,42 @@ const Banner = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
+    let slideIndex = 0;
+    let isMounted = true;
+    const images = slides.map(({ bgImage }) => {
+      const image = new Image();
+      image.src = bgImage;
+      return image;
+    });
+
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      const nextSlide = (slideIndex + 1) % slides.length;
+      const image = images[nextSlide];
+      const showNextSlide = () => {
+        if (isMounted) {
+          slideIndex = nextSlide;
+          setCurrentSlide(nextSlide);
+        }
+      };
+
+      if (image.complete) {
+        if (image.naturalWidth > 0) {
+          showNextSlide();
+        } else {
+          console.error(`Failed to load banner image: ${slides[nextSlide].bgImage}`);
+        }
+      } else {
+        image.onload = showNextSlide;
+        image.onerror = () => {
+          console.error(`Failed to load banner image: ${slides[nextSlide].bgImage}`);
+        };
+      }
     }, 4000);
-    return () => clearInterval(interval);
+
+    return () => {
+      isMounted = false;
+      clearInterval(interval);
+    };
   }, []);
 
   const activeSlide = slides[currentSlide];
