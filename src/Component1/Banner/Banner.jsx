@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { BiRightTopArrowCircle } from "react-icons/bi";
+import { BiRightArrowAlt } from "react-icons/bi";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 
 const slides = [
@@ -163,26 +163,6 @@ const Banner = () => {
       {/* Dark Overlay for Text Readability */}
       <div className="absolute inset-0 bg-black/50 z-10"></div>
 
-      {/* Previous Button */}
-      <button
-        type="button"
-        onClick={handlePrevSlide}
-        aria-label="Previous slide"
-        className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/15 hover:bg-white/30 backdrop-blur-sm border border-white/25 text-white flex items-center justify-center transition-all duration-300 cursor-pointer"
-      >
-        <HiChevronLeft className="w-6 h-6" />
-      </button>
-
-      {/* Next Button */}
-      <button
-        type="button"
-        onClick={handleNextSlide}
-        aria-label="Next slide"
-        className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/15 hover:bg-white/30 backdrop-blur-sm border border-white/25 text-white flex items-center justify-center transition-all duration-300 cursor-pointer"
-      >
-        <HiChevronRight className="w-6 h-6" />
-      </button>
-
       <div className="Container relative z-20 !w-full !max-w-[1320px] !px-6">
         <div className="w-full">
           {/* Keyed wrapper to re-trigger slide-in animation on every slide change */}
@@ -196,22 +176,41 @@ const Banner = () => {
                 {activeSlide.titleLine2}
               </span>
             </h1>
-            <p className="font-Nunito sm:text-lg text-TextColor-0 mb-[46px] mt-1">
+            <p className="font-Nunito sm:text-lg text-TextColor-0 mb-[30px] mt-1">
               {activeSlide.descLine1}
               <br className="hidden 2xl:block" /> {activeSlide.descLine2}
             </p>
             <div className="flex flex-col sm:flex-row gap-5">
               <Link to={"/contact"}>
-                <button className="primary-btn !bg-gradient-to-r !from-[#e3ffe7] !to-[#d9e7ff] hover:!from-[#efd5ff] hover:!to-[#515ada] !text-[#182848] hover:!text-white !border-none !outline-none transition-all duration-300">
-                  {`Let's Talk`}
-                  <BiRightTopArrowCircle size={"20"} />
+                <button className="inline-flex items-center gap-2 !bg-[#3565ad] !text-white font-bold hover:!bg-white hover:!text-[#3565ad] !border-none !outline-none !rounded-full !px-6 !py-3 transition-all duration-300">
+                 {`Read More`}
+                  <BiRightArrowAlt size={20} />
                 </button>
               </Link>
               <Link to={"/about"}>
-                <button className="primary-btn !bg-gradient-to-r !from-[#e3ffe7] !to-[#d9e7ff] hover:!from-[#efd5ff] hover:!to-[#515ada] !text-[#182848] hover:!text-white !border-none !outline-none transition-all duration-300">
+                {/* <button className="primary-btn !bg-[#3565ad] !text-white font-bold hover:!text-white !border-none !outline-none !rounded-full !px-6 !py-3 transition-all duration-300">
                   {`Read More`}
-                </button>
+                  <BiRightArrowAlt size={20} />
+                </button> */}
               </Link>
+            </div>
+            <div className="mt-6 flex items-center gap-4">
+              <button
+                type="button"
+                onClick={handlePrevSlide}
+                aria-label="Previous slide"
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-white/80 bg-white/15 text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/30"
+              >
+                <HiChevronLeft className="h-6 w-6" />
+              </button>
+              <button
+                type="button"
+                onClick={handleNextSlide}
+                aria-label="Next slide"
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-white/80 bg-white/15 text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/30"
+              >
+                <HiChevronRight className="h-6 w-6" />
+              </button>
             </div>
           </div>
         </div>

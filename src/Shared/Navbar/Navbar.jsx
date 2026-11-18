@@ -7,7 +7,6 @@ import {
   FaPinterestP,
   FaXTwitter,
 } from "react-icons/fa6";
-import Logo from "/images/logo.png";
 import { useState, useEffect } from "react";
 import { IoMdClose } from "react-icons/io";
 import { IoSearch } from "react-icons/io5";
@@ -68,7 +67,7 @@ const Navbar = () => {
           isSticky ? "hidden" : "block"
         }`}
       >
-        <div className="Container flex items-center justify-between h-[50px]">
+        {/* <div className="Container flex items-center justify-between h-[50px]">
           <div className="flex items-center gap-10">
             <p className="font-Nunito text-white font-bold sm:flex hidden items-center gap-1 text-xs lg:text-sm">
               <CiLocationOn className="text-xl relative bottom-[2px] text-white font-black" />
@@ -106,7 +105,7 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Main Navbar Section */}
@@ -122,8 +121,12 @@ const Navbar = () => {
               <Link to="/">
                 <img
                   draggable="false"
-                  src="/binary-img/binarylogoblue.png"
-                  className="hidden w-full lg:block"
+                  src={
+                    isSticky
+                      ? "/binary-img/binarylogoblue.png"
+                      : "/binary-img/Binary Logo White.png"
+                  }
+                  className="hidden h-[46px] w-auto max-w-full object-contain lg:block"
                   alt="website_logo"
                 />
               </Link>
