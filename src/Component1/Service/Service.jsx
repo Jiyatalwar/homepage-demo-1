@@ -79,8 +79,23 @@ const ServiceData = [
 
 const Service = () => {
   return (
-    <section className="relative pt-28 pb-[120px] bg-[url('/images/service-bg.png')] bg-cover bg-no-repeat bg-center">
-      <div className="Container">
+    <section className="relative pt-28 pb-[120px] overflow-hidden">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover -z-20"
+      >
+        <source src="" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Dark Overlay for Text & Card Readability */}
+      <div className="absolute inset-0 bg-black/60 -z-10"></div>
+
+      <div className="Container relative z-10">
         <div className="text-center">
           <h5 className="font-Rajdhani text-lg font-semibold text-PrimaryColor-0">
             IT Support For Business
@@ -103,19 +118,17 @@ const Service = () => {
               serviceBtnIcon,
             }) => {
               return (
-                <>
-                  <div key={id}>
-                    <ServiceCard
-                      serviceIcon={serviceIcon}
-                      serviceNumber={serviceNumber}
-                      serviceTitle={serviceTitle}
-                      serviceDesc={serviceDesc}
-                      serviceUrl={serviceUrl}
-                      serviceButton={serviceButton}
-                      serviceBtnIcon={serviceBtnIcon}
-                    />
-                  </div>
-                </>
+                <div key={id}>
+                  <ServiceCard
+                    serviceIcon={serviceIcon}
+                    serviceNumber={serviceNumber}
+                    serviceTitle={serviceTitle}
+                    serviceDesc={serviceDesc}
+                    serviceUrl={serviceUrl}
+                    serviceButton={serviceButton}
+                    serviceBtnIcon={serviceBtnIcon}
+                  />
+                </div>
               );
             }
           )}

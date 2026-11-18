@@ -1,93 +1,200 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
-import bannerImg from "/images/hero-thumb.png";
-import bannerShape from "/images/hero-shape.png";
 import { BiRightTopArrowCircle } from "react-icons/bi";
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 
 const slides = [
   {
-    bgImage:
-      "/binary-img/modern-technology-circuit-board-close-up-abstract-2026-09-22-21-27-25-utc.jpg",
-    titleLine1: "Transforming IT Infrastructure ",
-    titleLine2: "for Enterprise Growth",
-    descLine1: "Empower your organization with next-generation networking, ",
-    descLine2: "cloud-ready infrastructure, and secure connectivity solutions.",
+    bgVideo:
+      "/binary-video/futuristic-data-network-connections-on-corporate-l-2026-10-03-06-19-22-utc.mp4",
+    titleLine1: "Engineering Enterprise Networks",
+    titleLine2: "for Wi-Fi 7, SD-WAN and NaaS",
+    descLine1: "Always Connected. Always Optimised. ",
+    descLine2: "",
   },
   {
-    bgImage:
-      "/binary-img/abstract-technology-circuit-board-in-blue-and-pink-2026-09-23-22-26-05-utc.jpg",
-    titleLine1: "Intelligent Infrastructure",
-    titleLine2: "to a Connected Enterprise",
-    descLine1: "Unlock Cloud Potential with Infrastructure Designed for",
-    descLine2: "Speed, Scale, and Operational Excellence.",
+    bgVideo:
+      "/binary-video/futuristic-digital-city-with-glowing-network-and-t-2026-10-03-08-53-47-utc.mp4",
+    titleLine1: "Securing Every Endpoint with",
+    titleLine2: "Zero Trust and 24×7 SOC",
+    descLine1: "Detect Faster. Respond Smarter.",
+    descLine2: "",
   },
-   {
-    bgImage:
-      "/binary-img/abstract-technology-circuit-board-in-blue-and-pink-2026-09-23-22-26-05-utc.jpg",
-    titleLine1: "Secure. Detect. ",
-    titleLine2: "Respond.Cybersecurity Without Compromise.",
-    descLine1: "Safeguard mission-critical workloads with zero-trust defenseEnable secure growth with intelligent cybersecurity solutions that,",
-    descLine2: "protect critical infrastructure, data, and digital operations.",
+  {
+    bgVideo:
+      "/binary-video/futuristic-digital-security-shield-intro-animation-2026-10-03-06-05-44-utc.mp4",
+    titleLine1: "Building AI-Ready Data Platforms",
+    titleLine2: "on HCI and Hybrid Storage",
+    descLine1:
+      "Protected Data. Proven Performance.",
+    descLine2: "",
   },
 ];
 
 const Banner = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const videoRefs = useRef([]);
+  const activeSlideRef = useRef(0);
+  const pendingSlideRef = useRef(null);
+  const intervalRef = useRef(null);
+
+  const goToSlide = useCallback((targetIndex) => {
+    const normalizedIndex = (targetIndex + slides.length) % slides.length;
+    const targetVideo = videoRefs.current[normalizedIndex];
+
+    if (targetVideo?.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
+      pendingSlideRef.current = null;
+      activeSlideRef.current = normalizedIndex;
+      setCurrentSlide(normalizedIndex);
+    } else {
+      pendingSlideRef.current = normalizedIndex;
+    }
+  }, []);
+
+  const resetAutoSlide = useCallback(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+
+    intervalRef.current = setInterval(() => {
+      if (pendingSlideRef.current !== null) return;
+      goToSlide(activeSlideRef.current + 1);
+    }, 6000);
+  }, [goToSlide]);
 
   useEffect(() => {
-    let slideIndex = 0;
-    let isMounted = true;
-    const images = slides.map(({ bgImage }) => {
-      const image = new Image();
-      image.src = bgImage;
-      return image;
-    });
-
-    const interval = setInterval(() => {
-      const nextSlide = (slideIndex + 1) % slides.length;
-      const image = images[nextSlide];
-      const showNextSlide = () => {
-        if (isMounted) {
-          slideIndex = nextSlide;
-          setCurrentSlide(nextSlide);
-        }
-      };
-
-      if (image.complete) {
-        if (image.naturalWidth > 0) {
-          showNextSlide();
-        } else {
-          console.error(`Failed to load banner image: ${slides[nextSlide].bgImage}`);
-        }
-      } else {
-        image.onload = showNextSlide;
-        image.onerror = () => {
-          console.error(`Failed to load banner image: ${slides[nextSlide].bgImage}`);
-        };
-      }
-    }, 4000);
-
+    resetAutoSlide();
     return () => {
-      isMounted = false;
-      clearInterval(interval);
+      if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, []);
+  }, [resetAutoSlide]);
+
+  useEffect(() => {
+    videoRefs.current.forEach((video, index) => {
+      if (!video) return;
+
+      if (index === currentSlide) {
+        video.play().catch((error) => {
+          console.error("Failed to play banner video:", error);
+        });
+      } else {
+        video.pause();
+      }
+    });
+  }, [currentSlide]);
+
+  const handlePrevSlide = () => {
+    goToSlide(activeSlideRef.current - 1);
+    resetAutoSlide();
+  };
+
+  const handleNextSlide = () => {
+    goToSlide(activeSlideRef.current + 1);
+    resetAutoSlide();
+  };
+
+  const handleVideoCanPlay = (index) => {
+    if (pendingSlideRef.current === index) {
+      pendingSlideRef.current = null;
+      activeSlideRef.current = index;
+      setCurrentSlide(index);
+    }
+  };
+
+  const handleVideoError = (index) => {
+    if (pendingSlideRef.current === index) {
+      pendingSlideRef.current = null;
+    }
+    console.error(`Failed to load banner video: ${slides[index].bgVideo}`);
+  };
 
   const activeSlide = slides[currentSlide];
 
   return (
-    <section
-      style={{ backgroundImage: `url('${activeSlide.bgImage}')` }}
-      className="bg-cover bg-center bg-no-repeat h-[600px] sm:h-[1200px] lg:h-[660px] xl:h-[800px] flex items-center relative z-10 overflow-hidden transition-all duration-700"
-    >
-      <div className="Container">
-        <div className="grid lg:grid-cols-2 items-center gap-16 lg:gap-0">
-          <div className="relative">
+    <section className="group h-[600px] sm:h-[1200px] lg:h-[660px] xl:h-[800px] flex items-center relative z-10 overflow-hidden isolate bg-[#111827]">
+      {/* Custom Styles for Left-to-Right Animation & Progress Bar */}
+      <style>{`
+        @keyframes slideInLeft {
+          0% {
+            opacity: 0;
+            transform: translateX(-60px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        .animate-slide-in {
+          animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes progressFill {
+          0% {
+            width: 0%;
+          }
+          100% {
+            width: 100%;
+          }
+        }
+        .animate-progress {
+          animation: progressFill 6s linear forwards;
+        }
+      `}</style>
+
+      {slides.map((slide, index) => (
+        <video
+          key={slide.bgVideo}
+          ref={(element) => {
+            videoRefs.current[index] = element;
+          }}
+          autoPlay={index === currentSlide}
+          loop
+          muted
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+          onCanPlay={() => handleVideoCanPlay(index)}
+          onError={() => handleVideoError(index)}
+          className={`absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-700 ${
+            index === currentSlide ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <source src={slide.bgVideo} type="video/mp4" />
+        </video>
+      ))}
+
+      {/* Dark Overlay for Text Readability */}
+      <div className="absolute inset-0 bg-black/50 z-10"></div>
+
+      {/* Previous Button */}
+      <button
+        type="button"
+        onClick={handlePrevSlide}
+        aria-label="Previous slide"
+        className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/15 hover:bg-white/30 backdrop-blur-sm border border-white/25 text-white flex items-center justify-center transition-all duration-300 cursor-pointer"
+      >
+        <HiChevronLeft className="w-6 h-6" />
+      </button>
+
+      {/* Next Button */}
+      <button
+        type="button"
+        onClick={handleNextSlide}
+        aria-label="Next slide"
+        className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/15 hover:bg-white/30 backdrop-blur-sm border border-white/25 text-white flex items-center justify-center transition-all duration-300 cursor-pointer"
+      >
+        <HiChevronRight className="w-6 h-6" />
+      </button>
+
+      <div className="Container relative z-20 !w-full !max-w-[1320px] !px-6">
+        <div className="w-full">
+          {/* Keyed wrapper to re-trigger slide-in animation on every slide change */}
+          <div key={currentSlide} className="relative animate-slide-in">
             <h5 className="font-Rajdhani text-white text-[19px] font-medium flex items-center gap-2 mb-4"></h5>
-            <h1 className="font-Rajdhani font-extrabold text-white text-[30px] leading-[36px] sm:text-[56px] sm:leading-[60px] md:text-[68x] lg:text-[50px] xl:text-[58px] xl:leading-[68px] 2xl:text-[69px] 2xl:leading-[79px]">
-              {activeSlide.titleLine1}
-              <br />
-              {activeSlide.titleLine2}
+            <h1 className="font-Rajdhani font-extrabold text-white text-[clamp(1.75rem,5.5vw,4.25rem)] leading-[1.05]">
+              <span className="block sm:whitespace-nowrap">
+                {activeSlide.titleLine1}
+              </span>
+              <span className="block sm:whitespace-nowrap">
+                {activeSlide.titleLine2}
+              </span>
             </h1>
             <p className="font-Nunito sm:text-lg text-TextColor-0 mb-[46px] mt-1">
               {activeSlide.descLine1}
@@ -107,15 +214,15 @@ const Banner = () => {
               </Link>
             </div>
           </div>
-          {/* <div className="sm:flex justify-center lg:justify-end -mb-[132px] lg:-mb-12 relative hidden">
-            <img src={bannerImg} draggable="false" className=":w-[inherit]" />
-            <img
-              src={bannerShape}
-              draggable={false}
-              className="absolute top-40 left-0 md:left-20 lg:left-0 xl:left-10 2xl:left-[7rem] animate-rotational hidden sm:block"
-            />
-          </div> */}
         </div>
+      </div>
+
+      {/* Slide Duration Progress Bar Line */}
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-white/20 z-30">
+        <div
+          key={currentSlide}
+          className="h-full bg-gradient-to-r from-[#e3ffe7] to-[#d9e7ff] animate-progress"
+        />
       </div>
     </section>
   );

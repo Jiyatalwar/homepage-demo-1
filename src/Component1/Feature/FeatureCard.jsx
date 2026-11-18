@@ -43,7 +43,7 @@ const FeatureCard = ({
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="text-center shadow-shade overflow-hidden group px-10 pt-[60px] pb-8 rounded-lg bg-white relative z-10 transition-transform duration-200 ease-out will-change-transform before:absolute before:bottom-0 before:left-0 before:w-full before:h-0 before:bg-[linear-gradient(to_right,#2b5876_0%,#4e4376_51%,#2b5876_100%)] before:transition-all before:duration-500 before:-z-10 hover:before:h-full hover:before:top-0"
+      className="text-center shadow-shade overflow-hidden group px-10 pt-[60px] pb-8 rounded-lg bg-white relative z-10 transition-transform duration-200 ease-out will-change-transform before:absolute before:bottom-0 before:left-0 before:w-full before:h-0 before:bg-[linear-gradient(to_right,#2b5876_0%,#2b5876_51%,#28b8d5_100%)] before:transition-all before:duration-500 before:-z-10 hover:before:h-full hover:before:top-0"
     >
       {/* 3D Floating Icon Layer */}
       <div className="relative text-center z-10 [transform:translateZ(40px)] transition-transform duration-500">
