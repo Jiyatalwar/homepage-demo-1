@@ -36,7 +36,7 @@ const features = [
 ];
 
 const customGradient =
-  "linear-gradient(135deg, #020344 0%, #28b8d5 100%)";
+  "linear-gradient(135deg, #020344 0%, #182848 100%)";
 
 const About = () => {
   const cardRef = useRef(null);

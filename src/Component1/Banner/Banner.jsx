@@ -212,6 +212,7 @@ const Banner = () => {
                 <HiChevronRight className="h-6 w-6" />
               </button>
             </div>
+            
           </div>
         </div>
       </div>
