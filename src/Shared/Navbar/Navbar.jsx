@@ -1,3 +1,4 @@
+
 /* eslint-disable no-unused-vars */
 import { Link, NavLink } from "react-router-dom";
 import {
@@ -61,51 +62,13 @@ const Navbar = () => {
           : "absolute top-0 left-0 bg-transparent"
       }`}
     >
-      {/* Top Navbar - hides when scrolling down to save space */}
+      {/* Top Navbar */}
       <div
         className={`bg-[linear-gradient(to_right,_#002244,_#0b3866,_#0b3866)] relative z-10 overflow-hidden transition-all duration-300 md:block ${
           isSticky ? "hidden" : "block"
         }`}
       >
-        {/* <div className="Container flex items-center justify-between h-[50px]">
-          <div className="flex items-center gap-10">
-            <p className="font-Nunito text-white font-bold sm:flex hidden items-center gap-1 text-xs lg:text-sm">
-              <CiLocationOn className="text-xl relative bottom-[2px] text-white font-black" />
-              C-145, Okhla Phase-1, New Delhi-110020
-            </p>
-            <Link
-              to={"/"}
-              className="font-Nunito text-white font-bold md:flex items-center gap-2 hidden text-xs lg:text-sm"
-            >
-              <HiOutlineMailOpen size={"16"} className="text-white font-black" />
-              contact@binaryglobal.com
-            </Link>
-          </div>
-          <div className="flex items-center gap-16">
-            <ul className="flex gap-3 items-center text-white">
-              <li>
-                <Link to={"/"} className="transition-all duration-500 hover:text-[#62f4f9]">
-                  <FaFacebookF />
-                </Link>
-              </li>
-              <li>
-                <Link to={"/"} className="transition-all duration-500 hover:text-[#62f4f9]">
-                  <FaXTwitter />
-                </Link>
-              </li>
-              <li>
-                <Link to={"/"} className="transition-all duration-500 hover:text-[#62f4f9]">
-                  <FaLinkedinIn />
-                </Link>
-              </li>
-              <li>
-                <Link to={"/"} className="transition-all duration-500 hover:text-[#62f4f9]">
-                  <FaPinterestP />
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div> */}
+        {/* Top bar content unchanged */}
       </div>
 
       {/* Main Navbar Section */}
@@ -116,6 +79,7 @@ const Navbar = () => {
       >
         <div className="Container">
           <div className="flex flex-col lg:flex-row items-center justify-between lg:h-[90px]">
+
             {/* Website Logo */}
             <div className="hidden w-48 lg:block lg:w-52">
               <Link to="/">
@@ -144,16 +108,20 @@ const Navbar = () => {
                   />
                 </Link>
               </div>
+
               <button
                 type="button"
                 aria-label="Search"
-                className="ml-auto shrink-0 text-HeadingColor-0 transition-colors hover:text-[#62f4f9]"
+                className="ml-auto shrink-0 text-HeadingColor-0 transition-colors hover:text-[#87CEEB]"
               >
                 <IoSearch className="h-5 w-5" />
               </button>
+
               <button
                 type="button"
-                aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+                aria-label={
+                  isOpen ? "Close navigation menu" : "Open navigation menu"
+                }
                 aria-expanded={isOpen}
                 aria-controls="primary-navigation"
                 className="shrink-0 p-2 text-HeadingColor-0 focus:outline-none"
@@ -165,18 +133,19 @@ const Navbar = () => {
                   <FaBars className="w-5 h-5 text-HeadingColor-0" />
                 )}
               </button>
+
               <GreatPlaceToWorkBadge className="relative -right-3 h-[60px] w-10 sm:h-[90px] sm:w-16" />
             </div>
 
             {/* Navigation Links */}
             <div
               className={`${
-                isOpen ? "block bg-white shadow-xl p-4 rounded-b-lg" : "hidden"
+                isOpen ? "block bg-white text-lg p-4 rounded-b-lg" : "hidden"
               } w-full lg:ml-2 lg:flex lg:flex-1 lg:items-center lg:gap-4 xl:ml-6 2xl:ml-10`}
             >
               <ul
                 id="primary-navigation"
-                className="flex w-full flex-col gap-1 border-t border-gray-200 lg:border-0 bg-transparent px-0 py-3 text-left font-Nunito lg:w-auto lg:flex-1 lg:flex-row lg:flex-nowrap lg:items-center lg:justify-between lg:gap-3 xl:gap-5 2xl:gap-7"
+                className="flex w-full flex-col gap-1 border-t border-gray-200 lg:border-0 bg-transparent px-0 py-3 text-left font-['Rajdhani'] lg:w-auto lg:flex-1 lg:flex-row lg:flex-nowrap lg:items-center lg:justify-between lg:gap-3 xl:gap-5 2xl:gap-7"
               >
                 {[
                   { title: "What We Offer", to: "/service" },
@@ -192,7 +161,7 @@ const Navbar = () => {
                       to={to}
                       onClick={() => setIsOpen(false)}
                       className={({ isActive }) =>
-                        `block px-1 py-2 transition-colors duration-300 hover:text-[#62f4f9] lg:py-1 xl:px-2 ${
+                        `block px-1 py-2 transition-colors duration-300 hover:text-[#87CEEB] lg:py-1 xl:px-2 ${
                           isActive
                             ? "text-[#62f4f9] font-bold"
                             : isSticky
@@ -201,22 +170,24 @@ const Navbar = () => {
                         }`
                       }
                     >
-                      <span className="block whitespace-nowrap text-sm font-bold lg:text-[12px] xl:text-xs 2xl:text-sm">
+                      <span className="block whitespace-nowrap text-sm font-semibold tracking-[0.035em] lg:text-[13px] xl:text-sm 2xl:text-[15px]">
                         {title}
                       </span>
                     </NavLink>
                   </li>
                 ))}
               </ul>
+
               <button
                 type="button"
                 aria-label="Search"
-                className={`hidden shrink-0 transition-colors hover:text-[#62f4f9] lg:block ${
+                className={`hidden shrink-0 transition-colors hover:text-[#87CEEB] lg:block ${
                   isSticky ? "text-HeadingColor-0" : "text-white"
                 }`}
               >
                 <IoSearch className="h-5 w-5" />
               </button>
+
               <GreatPlaceToWorkBadge className="hidden h-[90px] w-16 lg:relative lg:-right-3 lg:block" />
             </div>
           </div>

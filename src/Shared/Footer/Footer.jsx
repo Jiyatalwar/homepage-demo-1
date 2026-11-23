@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import footerLogo from "/images/logo-2.png";
 import {
   FaFacebookF,
   FaLinkedinIn,
@@ -12,12 +11,17 @@ import { HiOutlineMail } from "react-icons/hi";
 
 const Footer = () => {
   return (
-    <footer className="bg-[url('/images/footer-bg.jpg')] bg-no-repeat bg-center bg-cover relative z-10 pt-28 overflow-hidden">
+    <footer className=" bg-black  bg-[url('/')] bg-no-repeat bg-center bg-cover relative z-10 pt-28 overflow-hidden">
       <div className="Container">
         <div className="grid gap-y-7 grid-cols-12">
           <div className="col-span-12 md:col-span-6 lg:col-span-4">
             <Link to={"/"}>
-              <img src={footerLogo} draggable={false} />
+              <img
+                src="/binary-img/Binary Logo White.png"
+                alt="Binary Global Limited"
+                draggable={false}
+                className="h-auto w-[180px]"
+              />
             </Link>
             <p className="font-Nunito text-white opacity-80 mt-6 mb-8 w-10/12">
               Monotonectally synergize granular top{" "}

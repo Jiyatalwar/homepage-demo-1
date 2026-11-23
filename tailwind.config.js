@@ -4,8 +4,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        sans: ["Rajdhani", "sans-serif"],
+        Lato: ["Rajdhani", "sans-serif"],
         Rajdhani: ["Rajdhani", "sans-serif"],
-        Nunito: ["Nunito", "sans-serif"],
+        Nunito: ["Rajdhani", "sans-serif"],
       },
       colors: {
         PrimaryColor: ["#0c59db"],

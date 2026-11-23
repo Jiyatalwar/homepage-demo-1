@@ -1,3 +1,4 @@
+
 import { useRef } from "react";
 import aboutThumb from "/images/about-thumb.png";
 import aboutIcon from "/images/about-icon1.png";
@@ -17,49 +18,52 @@ import {
 } from "framer-motion";
 
 const features = [
-  {
-    icon: aboutIcon,
-    title: "100% Money Back Guarantee",
-  },
-  {
-    icon: aboutIcon2,
-    title: "Expert & Dedicated Team Members",
-  },
-  {
-    icon: aboutIcon3,
-    title: "24/7 Free Technical Supports",
-  },
-  {
-    icon: aboutIcon4,
-    title: "100% Customers Satisfaction",
-  },
+  { icon: aboutIcon3, title: "24*7 NOC & SOC" },
+  { icon: aboutIcon, title: "76+ Turnover (Million USD)" },
+  { icon: aboutIcon, title: "2,500+ Customers Served" },
+  { icon: aboutIcon2, title: "220+ Certified Experts" },
+  { icon: aboutIcon4, title: "8 Offices" },
+  { icon: aboutIcon4, title: "3 Countries" },
 ];
 
 const customGradient =
-  "linear-gradient(135deg, #020344 0%, #182848 100%)";
+  "linear-gradient(135deg, #020344 0%, #3565ad 100%)";
 
 const About = () => {
   const cardRef = useRef(null);
 
-  // Mouse tracking for 3D tilt effect
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const mouseXSpring = useSpring(x, { stiffness: 150, damping: 20 });
-  const mouseYSpring = useSpring(y, { stiffness: 150, damping: 20 });
+  const mouseXSpring = useSpring(x, {
+    stiffness: 150,
+    damping: 20,
+  });
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+  const mouseYSpring = useSpring(y, {
+    stiffness: 150,
+    damping: 20,
+  });
+
+  const rotateX = useTransform(
+    mouseYSpring,
+    [-0.5, 0.5],
+    ["10deg", "-10deg"]
+  );
+
+  const rotateY = useTransform(
+    mouseXSpring,
+    [-0.5, 0.5],
+    ["-10deg", "10deg"]
+  );
 
   const handleMouseMove = (e) => {
     if (!cardRef.current) return;
+
     const rect = cardRef.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    x.set(mouseX / width - 0.5);
-    y.set(mouseY / height - 0.5);
+
+    x.set((e.clientX - rect.left) / rect.width - 0.5);
+    y.set((e.clientY - rect.top) / rect.height - 0.5);
   };
 
   const handleMouseLeave = () => {
@@ -68,14 +72,16 @@ const About = () => {
   };
 
   return (
-    <section className="py-[120px] bg-BodyBg-0 bg-no-repeat bg-center bg-cover relative overflow-hidden">
-      {/* Subtle modern ambient glow using #71aadd and #6296ce */}
-      <div className="pointer-events-none absolute -top-24 -left-24 w-96 h-96 bg-[#c6f8ff]/15 rounded-full blur-3xl -z-0" />
-      <div className="pointer-events-none absolute -bottom-24 -right-24 w-96 h-96 bg-[#133a94]/15 rounded-full blur-3xl -z-0" />
+    <section className="relative overflow-hidden bg-BodyBg-0 bg-cover bg-center bg-no-repeat py-16 sm:py-20 lg:py-[110px]">
 
-      <div className="Container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-[92px] lg:gap-10 2xl:gap-[92px] items-center">
-          {/* Left Column: Interactive 3D Perspective Image Container */}
+      {/* Ambient Background Glow */}
+      <div className="pointer-events-none absolute -left-24 -top-24 z-0 h-96 w-96 rounded-full bg-[#c6f8ff]/15 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-24 -right-24 z-0 h-96 w-96 rounded-full bg-[#133a94]/15 blur-3xl" />
+
+      <div className="Container relative z-10">
+        <div className="grid grid-cols-1 items-center gap-12 px-2 sm:px-0 lg:grid-cols-2 lg:gap-12 2xl:gap-[92px]">
+
+          {/* Left Column: Image */}
           <motion.div
             ref={cardRef}
             onMouseMove={handleMouseMove}
@@ -84,10 +90,8 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            style={{
-              perspective: 1200,
-            }}
-            className="relative z-10 cursor-pointer"
+            style={{ perspective: 1200 }}
+            className="relative z-10 mx-auto w-full max-w-[560px] cursor-pointer"
           >
             <motion.div
               style={{
@@ -97,15 +101,14 @@ const About = () => {
               }}
               className="relative transition-shadow duration-300"
             >
-              {/* Main Image with custom gradient shadow */}
               <img
                 src={aboutThumb}
                 draggable="false"
                 alt="About Us"
-                className="rounded-2xl shadow-[0_20px_50px_rgba(36,55,72,0.22)] transition-transform duration-300"
+                className="block h-auto max-h-[580px] w-full rounded-2xl object-cover shadow-[0_20px_50px_rgba(36,55,72,0.22)]"
               />
 
-              {/* Floating 3D Experience Badge */}
+              {/* Experience Badge */}
               <motion.div
                 style={{ transform: "translateZ(50px)" }}
                 animate={{ y: [0, -8, 0] }}
@@ -114,11 +117,11 @@ const About = () => {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="absolute top-0 left-0"
+                className="absolute left-0 top-0"
               >
-                <div
+                {/* <div
                   style={{ background: customGradient }}
-                  className="shadow-[0_15px_35px_rgba(36,55,72,0.45)] border border-white/15 pb-6 pt-5 flex flex-col justify-between overflow-hidden rounded-xl h-[117px] sm:h-[208px] lg:h-[180px] xl:h-[208px] w-[92px] sm:w-[170px] lg:w-[140px] xl:w-[170px] items-center text-center relative z-10 before:absolute before:top-1/2 before:-translate-y-1/2 before:left-1/2 before:-translate-x-1/2 before:w-0 sm:before:w-8 before:h-[2px] before:bg-white/80 after:absolute after:-top-14 after:-left-[2px] after:w-0 sm:after:w-[174px] after:h-[170px] after:bg-[#074170]/70 after:-z-10 after:rounded-full"
+                  className="relative z-10 flex h-[115px] w-[100px] flex-col items-center justify-between overflow-hidden rounded-xl border border-white/15 pb-4 pt-4 text-center shadow-[0_15px_35px_rgba(36,55,72,0.45)] sm:h-[180px] sm:w-[150px] sm:pb-6 sm:pt-5 lg:h-[170px] lg:w-[140px] xl:h-[190px] xl:w-[155px] before:absolute before:left-1/2 before:top-1/2 before:h-[2px] before:w-7 before:-translate-x-1/2 before:-translate-y-1/2 before:bg-white/80 after:absolute after:-left-[2px] after:-top-14 after:-z-10 after:h-[170px] after:w-[174px] after:rounded-full after:bg-[#074170]/70"
                 >
                   <CountUp
                     start={-1}
@@ -126,60 +129,73 @@ const About = () => {
                     suffix="+"
                     enableScrollSpy
                     scrollSpyOnce
-                    className="text-3xl sm:text-[56px] font-Rajdhani font-bold text-white drop-shadow-sm"
+                    className="font-['Rajdhani'] text-4xl font-bold text-white drop-shadow-sm sm:text-[56px]"
                   />
-                  <h6 className="font-Rajdhani text-sm leading-4 sm:text-lg sm:leading-5 font-semibold text-white">
+
+                  <h6 className="font-['Rajdhani'] text-sm font-semibold leading-4 text-white sm:text-lg sm:leading-5">
                     Years Of <br /> Experiences
                   </h6>
-                </div>
+                </div> */}
               </motion.div>
 
-              {/* Floating Decorative Shape with Z-depth */}
               <motion.img
                 src={aboutShape}
                 draggable="false"
                 alt=""
                 style={{ transform: "translateZ(25px)" }}
-                className="absolute bottom-6 right-10 -z-10 animate-movebtn hidden sm:block drop-shadow-lg"
+                className="absolute bottom-6 right-10 -z-10 hidden drop-shadow-lg sm:block"
               />
             </motion.div>
           </motion.div>
 
-          {/* Right Column: Modernized Content & Staggered 3D Feature Cards */}
+          {/* Right Column: Content */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="relative"
+            className="relative font-['Rajdhani',sans-serif]"
           >
-            {/* Modern pill badge */}
-            <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#4dc9e6]/10 border border-[#4B749F]/25 font-Rajdhani text-base sm:text-lg font-semibold text-[#0b3866]">
-              <span className="w-2 h-2 rounded-full bg-[#242acf] animate-pulse" />
-              IT Support For Business
-            </span>
 
-            <h1 className="font-Rajdhani font-bold text-xl leading-7 sm:text-[34px] sm:leading-[44px] md:text-[44px] md:leading-[54px] lg:text-[30px] lg:leading-[40px] xl:text-[36px] xl:leading-[46px] 2xl:text-[42px] 2xl:leading-[52px] text-HeadingColor-0 mt-[18px] mb-3">
-              Ensuring Your Success Trusted <br />
-              <span
-                style={{
-                  backgroundImage: customGradient,
-                }}
-                className="bg-clip-text text-transparent"
-              >
-                IT Services Source
+            {/* HERO HEADING - UNCHANGED */}
+            <div>
+              <span className="inline-flex items-center gap-3 text-xs sm:text-sm font-bold uppercase tracking-[0.18em] text-[#1769d2]">
+                <span className="h-[2.5px] w-7 rounded-full bg-[#d81b60]" />
+                WHO WE ARE
               </span>
-            </h1>
 
-            <p className="font-Nunito text-TextColor2-0 pb-9 border-b border-BorderColor2-0 relative before:absolute before:left-0 before:-bottom-[1px] before:w-[50px] before:h-[2px] before:bg-[#4B749F] before:animate-dance4">
-              Monotonectally synergize granular markets and front markets.
-              Collaboratively visualize strategic infomediaries after multimedia
-              based models. Synergistically task state of the art
-              infrastructures for
+              <h1 className="mt-4 mb-3 font-['Rajdhani'] font-bold text-[36px] sm:text-[48px] md:text-[56px] lg:text-[70px] leading-[1.08] tracking-[-0.025em] text-[#08132b]">
+                <span className="block sm:whitespace-nowrap">
+                  25 Years. 2,500+
+                </span>
+
+                <span className="block sm:whitespace-nowrap">
+                  Customers. <span className="text-[#3565ad]">One</span>
+                </span>
+
+                <span
+                  className="block sm:whitespace-nowrap"
+                  style={{
+                    background: "linear-gradient(135deg, #020344 0%, #3565ad 100%)",
+                    backgroundClip: "text",
+                    WebkitBackgroundClip: "text",
+                    color: "transparent",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
+                  Accountable IT Partner.
+                </span>
+              </h1>
+            </div>
+
+            {/* Description */}
+            <p className="relative border-b border-BorderColor2-0 pb-8 text-[20px] font-medium  leading-[1.7] tracking-[0.01em] text-[#526078] sm:text-lg sm:pb-9 before:absolute before:-bottom-[1px] before:left-0 before:h-[2px] before:w-[50px] before:animate-dance4 before:bg-[#4B749F]">
+              IT solutions and managed services across cybersecurity,
+              cloud, data management, networking and digital infrastructure.
             </p>
 
-            {/* 4 Feature Items with 3D Hover Lift & Custom Gradient Hover */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-[30px] gap-x-4 my-10">
+            {/* Feature Items */}
+            <div className="my-8 grid grid-cols-1 gap-x-5 gap-y-6 sm:grid-cols-2 sm:gap-y-7 lg:my-9">
               {features.map((item, idx) => (
                 <motion.div
                   key={idx}
@@ -190,23 +206,25 @@ const About = () => {
                   whileHover={{
                     y: -6,
                     scale: 1.02,
-                    transition: { type: "spring", stiffness: 300, damping: 18 },
+                    transition: {
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 18,
+                    },
                   }}
-                  className="group flex gap-5 items-center p-2.5 -m-2.5 rounded-xl transition-all duration-300 hover:bg-white/80 hover:backdrop-blur-md hover:shadow-[0_12px_30px_rgba(36,55,72,0.12)]"
+                  className="group -m-2.5 flex items-center gap-4 rounded-xl p-2.5 transition-all duration-300 hover:bg-white/80 hover:shadow-[0_12px_30px_rgba(36,55,72,0.12)] hover:backdrop-blur-md sm:gap-5"
                 >
-                  <div
-                    style={{}}
-                    className="w-[70px] h-[70px] shrink-0 rounded-xl bg-white shadow-[0_8px_20px_rgba(36,55,72,0.08)] border border-slate-100 flex justify-center items-center transition-all duration-300 group-hover:bg-[linear-gradient(135deg,#243748_0%,#4B749F_100%)] group-hover:shadow-[0_10px_25px_rgba(36,55,72,0.35)] group-hover:-rotate-6"
-                  >
+                  <div className="flex h-[62px] w-[62px] shrink-0 items-center justify-center rounded-xl border border-slate-100 bg-white shadow-[0_8px_20px_rgba(36,55,72,0.08)] transition-all duration-300 group-hover:-rotate-6 group-hover:bg-[linear-gradient(135deg,#243748_0%,#4B749F_100%)] group-hover:shadow-[0_10px_25px_rgba(36,55,72,0.35)] sm:h-[70px] sm:w-[70px]">
                     <img
                       src={item.icon}
                       draggable="false"
                       alt=""
-                      className="transition-all duration-300 group-hover:brightness-0 group-hover:invert group-hover:scale-110"
+                      className="max-h-9 max-w-9 object-contain transition-all duration-300 group-hover:scale-110 group-hover:brightness-0 group-hover:invert"
                     />
                   </div>
-                  <div className="flex-1">
-                    <h5 className="font-Rajdhani font-semibold text-[22px] lg:text-base xl:text-xl 2xl:text-[22px] text-HeadingColor-0 transition-colors duration-300 group-hover:text-[#243748]">
+
+                  <div className="min-w-0 flex-1">
+                    <h5 className="font-['Rajdhani'] text-lg font-semibold leading-tight text-[#08132b] transition-colors duration-300 group-hover:text-[#243748] sm:text-xl xl:text-[22px]">
                       {item.title}
                     </h5>
                   </div>
@@ -214,15 +232,19 @@ const About = () => {
               ))}
             </div>
 
-            <Link to={"/about"} className="inline-block">
+            {/* Button */}
+            <Link to="/about" className="inline-block">
               <motion.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                style={{ background: customGradient }}
-                className="primary-btn text-white border-none shadow-[0_10px_25px_rgba(36,55,72,0.3)] hover:shadow-[0_15px_30px_rgba(75,116,159,0.45)] transition-shadow duration-300"
+                className="group relative isolate inline-flex items-center gap-2 overflow-hidden rounded-md bg-white px-7 py-3 font-['Rajdhani'] text-lg font-bold tracking-wide text-[#5A90C9] shadow-[0_10px_25px_rgba(36,55,72,0.3)] transition-colors duration-300 hover:text-white hover:shadow-[0_15px_30px_rgba(75,116,159,0.45)]"
               >
-                {`Discover More`}
-                <GoArrowRight size={"22"} />
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 -z-10 origin-left scale-x-0 bg-[#5A90C9] transition-transform duration-300 ease-out group-hover:scale-x-100"
+                />
+                <span className="relative">Talk to an Architect</span>
+                <GoArrowRight className="relative" size={22} />
               </motion.button>
             </Link>
 
@@ -230,7 +252,7 @@ const About = () => {
               src={aboutShape2}
               draggable="false"
               alt=""
-              className="absolute -bottom-0 left-1/2 animate-swing hidden sm:block pointer-events-none"
+              className="pointer-events-none absolute -bottom-0 left-1/2 hidden animate-swing sm:block"
             />
           </motion.div>
         </div>

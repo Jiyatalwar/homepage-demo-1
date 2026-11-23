@@ -1,17 +1,47 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Rajdhani:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
-  box-sizing: border-box;
+:root {
+  --feature-card-gradient: linear-gradient(
+    135deg,
+    #355f91 0%,
+    #5a90c9 50%,
+    #8ec5fc 100%
+  );
+  --feature-card-text-gradient: var(--feature-card-gradient);
 }
 
-html,
-body {
-  overflow-x: hidden;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply overflow-x-hidden;
+    font-family: 'Rajdhani', sans-serif;
+  }
+}
+
+.feature-card-gradient::before {
+  background: var(--feature-card-gradient);
+}
+
+.feature-card-text-gradient {
+  background: var(--feature-card-text-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.group:hover .feature-card-text-gradient {
+  background: none;
+  color: #fff;
+  -webkit-text-fill-color: #fff;
 }
 
 /*Common Tailwind CSS Start Here*/
