@@ -30,6 +30,10 @@
   background: var(--feature-card-gradient);
 }
 
+.service-card-gradient::before {
+  background: var(--feature-card-gradient);
+}
+
 .feature-card-text-gradient {
   background: var(--feature-card-text-gradient);
   background-clip: text;

@@ -249,7 +249,7 @@ const Service = () => {
               textShadow: "0 10px 30px rgba(0, 0, 0, 0.75)",
             }}
           >
-            Six practices. One converged, secure IT stack. <br />
+            Six practices. One converged,<br />
             secure IT stack.
           </h1>
         </div>

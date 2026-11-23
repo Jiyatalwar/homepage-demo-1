@@ -52,11 +52,14 @@ const Blog = () => {
       <div className="Container">
         <div className="text-center">
           <h5 className="font-Rajdhani text-lg font-semibold text-PrimaryColor-0">
-            Latest Blog
+            Success Stories
           </h5>
-          <h1 className="font-Rajdhani font-bold text-xl leading-7 sm:text-[34px] sm:leading-[44px] md:text-[44px] md:leading-[54px] lg:text-[32px] lg:leading-[42px] xl:text-[36px] xl:leading-[46px] 2xl:text-[42px] 2xl:leading-[52px] text-HeadingColor-0 mt-[18px]">
-            Latest Inshights From Our Blog
+          <h1 className="mt-[18px] font-['Rajdhani'] font-bold text-[36px] sm:text-[48px] md:text-[52px] lg:text-[48px] xl:text-[54px] 2xl:text-[58px] leading-[1.12] tracking-[-0.025em] text-HeadingColor-0">
+           Customer Success Stories
           </h1>
+          <p className="text-lg text-BodyColor-0 mt-[18px]">
+            Our clients' success is our greatest achievement - read their stories here!
+          </p>
         </div>
         <div className="mt-[46px]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">

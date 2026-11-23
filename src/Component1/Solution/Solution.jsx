@@ -1,56 +1,56 @@
 import { Link } from "react-router-dom";
 import {
   FaArrowRight,
-  FaBrain,
   FaCloud,
-  FaDatabase,
-  FaGear,
+  FaHeadset,
+  FaNetworkWired,
+  FaPuzzlePiece,
   FaShieldHalved,
-  FaWifi,
+  FaWallet,
 } from "react-icons/fa6";
 
 const solutionData = [
   {
     id: "01",
-    title: "Smart Infrastructure",
+    title: "Flexible IT consumption",
     description:
-      "AI-ready networks engineered for secure, high-performance connectivity.",
-    icon: <FaWifi />,
+      "Capex, opex or as-a-service across devices, storage, network and full infrastructure, so refresh cycles stop waiting on budget cycles",
+    icon: <FaWallet />,
   },
   {
     id: "02",
-    title: "Cyber Defense",
+    title: "Cloud on your terms",
     description:
-      "Zero trust protection that secures every endpoint, identity and workload.",
-    icon: <FaShieldHalved />,
-  },
-  {
-    id: "03",
-    title: "Data Management",
-    description:
-      "Resilient storage, backup and recovery built for always-on operations.",
-    icon: <FaDatabase />,
-  },
-  {
-    id: "04",
-    title: "Cloud Solutions",
-    description:
-      "Flexible hybrid and multi-cloud platforms designed for faster migration.",
+      "Public, private, hybrid and multi-cloud, with honest migration assessment and FinOps cost control once the workloads are running",
     icon: <FaCloud />,
   },
   {
-    id: "05",
-    title: "Managed IT",
+    id: "03",
+    title: "Managed services with names on them",
     description:
-      "Proactive operations, monitoring and expert support with predictable SLAs.",
-    icon: <FaGear />,
+      "A dedicated NOC and SOC staffed in India, with agreed SLAs, named engineers and monthly reporting a regulator would accept",
+    icon: <FaHeadset />,
+  },
+  {
+    id: "04",
+    title: "Cybersecurity built into the design",
+    description:
+      "Zero trust architecture, endpoint and data protection engineered in from the first session, then monitored round the clock from our own security operations centre",
+    icon: <FaShieldHalved />,
+  },
+  {
+    id: "05",
+    title: "Converged IT infrastructure",
+    description:
+      "Enterprise networking, wireless, compute, storage and collaboration delivered as a single estate rather than five separate procurements",
+    icon: <FaNetworkWired />,
   },
   {
     id: "06",
-    title: "Application Services",
+    title: "System integration, end to end",
     description:
-      "Data, AI and automation solutions that create measurable business value.",
-    icon: <FaBrain />,
+      "One partner from infrastructure assessment and design through implementation to day-two operations, so nothing is lost in a handover between vendors",
+    icon: <FaPuzzlePiece />,
   },
 ];
 
@@ -63,9 +63,9 @@ const Solution = () => {
       <div className="Container relative z-10">
         <div className="mx-auto mb-14 max-w-3xl text-center">
           <p className="mb-3 font-Rajdhani text-lg font-bold uppercase tracking-[0.18em] text-[#3565ad]">
-            Our Solutions
+            Why Choose Us
           </p>
-          <h2 className="font-Rajdhani text-4xl font-bold leading-tight text-[#08132b] sm:text-5xl">
+          <h2 className="font-Rajdhani font-bold text-[36px] sm:text-[48px] md:text-[52px] lg:text-[48px] xl:text-[54px] 2xl:text-[58px] leading-[1.12] tracking-[-0.025em] text-[#08132b]">
             Technology built around
             <span
               className="block"
@@ -113,11 +113,6 @@ const Solution = () => {
               <p className="mb-6 font-Rajdhani text-lg leading-7 text-[#667085]">
                 {solution.description}
               </p>
-
-              <div className="absolute bottom-8 left-8 flex items-center gap-2 font-Rajdhani text-base font-bold text-[#3565ad]">
-                <span>Explore solution</span>
-                <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
-              </div>
             </Link>
           ))}
         </div>

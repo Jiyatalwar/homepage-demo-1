@@ -12,7 +12,7 @@ const processData = [
     featureIcon: featureIcon,
     featureshape: featureshape,
     featureshape2: featureshape2,
-    featureTitle: "XXX+ Cr Turnover",
+    featureTitle: "26+ Years in Enterprise IT",
     featureDesc:
       "",
     featureUrl: "/service",
@@ -23,7 +23,7 @@ const processData = [
     featureIcon: featureIcon2,
     featureshape: featureshape,
     featureshape2: featureshape2,
-    featureTitle: "XX+ Locations",
+    featureTitle: "2500+ Customers Served",
     featureDesc:
       "",
     featureUrl: "/service",
@@ -34,7 +34,7 @@ const processData = [
     featureIcon: featureIcon3,
     featureshape: featureshape,
     featureshape2: featureshape2,
-    featureTitle: "Valuable Supports",
+    featureTitle: "220+ Certified Experts",
     featureDesc:
       "",
     featureUrl: "/service",

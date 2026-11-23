@@ -27,10 +27,11 @@ const Home1 = () => {
       {/* <Portfolio /> */}
       <Process />
       {/* <Testimonial /> */}
+       <Blog />
       <Video />
       {/* <Contact /> */}
       {/* <Pricing /> */}
-      <Blog />
+     
       {/* <Brand /> */}
     </>
   );

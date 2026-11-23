@@ -18,12 +18,12 @@ import {
 } from "framer-motion";
 
 const features = [
-  { icon: aboutIcon3, title: "24*7 NOC & SOC" },
-  { icon: aboutIcon, title: "76+ Turnover (Million USD)" },
-  { icon: aboutIcon, title: "2,500+ Customers Served" },
-  { icon: aboutIcon2, title: "220+ Certified Experts" },
-  { icon: aboutIcon4, title: "8 Offices" },
-  { icon: aboutIcon4, title: "3 Countries" },
+  { icon: aboutIcon3, title: "ISO 20000-1:2018" },
+  { icon: aboutIcon, title: "CMMI Level 3" },
+  { icon: aboutIcon, title: "ISO 14001:2015" },
+  { icon: aboutIcon2, title: "ISO 27001" },
+  { icon: aboutIcon4, title: "ISO 9001:2015" },
+  { icon: aboutIcon4, title: "76+ Turnover (Million USD)" },
 ];
 
 const customGradient =
@@ -79,7 +79,7 @@ const About = () => {
       <div className="pointer-events-none absolute -bottom-24 -right-24 z-0 h-96 w-96 rounded-full bg-[#133a94]/15 blur-3xl" />
 
       <div className="Container relative z-10">
-        <div className="grid grid-cols-1 items-center gap-12 px-2 sm:px-0 lg:grid-cols-2 lg:gap-12 2xl:gap-[92px]">
+        <div className="grid grid-cols-1 items-center gap-10 px-2 sm:px-0 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-8 xl:gap-10 2xl:grid-cols-[minmax(0,560px)_minmax(0,1fr)] 2xl:gap-16">
 
           {/* Left Column: Image */}
           <motion.div
@@ -164,17 +164,13 @@ const About = () => {
                 WHO WE ARE
               </span>
 
-              <h1 className="mt-4 mb-3 font-['Rajdhani'] font-bold text-[36px] sm:text-[48px] md:text-[56px] lg:text-[70px] leading-[1.08] tracking-[-0.025em] text-[#08132b]">
-                <span className="block sm:whitespace-nowrap">
-                  25 Years. 2,500+
-                </span>
-
-                <span className="block sm:whitespace-nowrap">
-                  Customers. <span className="text-[#3565ad]">One</span>
+              <h1 className="mt-4 mb-3 font-['Rajdhani'] font-bold text-[36px] sm:text-[48px] md:text-[52px] lg:text-[48px] xl:text-[54px] 2xl:text-[58px] leading-[1.12] tracking-[-0.025em] text-[#08132b]">
+                <span className="block">
+                 26+Years. 2,500+ Customers
                 </span>
 
                 <span
-                  className="block sm:whitespace-nowrap"
+                  className="block"
                   style={{
                     background: "linear-gradient(135deg, #020344 0%, #3565ad 100%)",
                     backgroundClip: "text",
@@ -183,7 +179,7 @@ const About = () => {
                     WebkitTextFillColor: "transparent",
                   }}
                 >
-                  Accountable IT Partner.
+                  One Accountable IT Partner
                 </span>
               </h1>
             </div>

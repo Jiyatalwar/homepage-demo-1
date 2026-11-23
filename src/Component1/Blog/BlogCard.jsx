@@ -9,6 +9,7 @@ const BlogCard = ({
   blogTag,
   blogUrl,
   blogTitle,
+  blogDesc,
   blogBtn,
   blogBtnIcon,
 }) => {
@@ -23,20 +24,24 @@ const BlogCard = ({
       <div className="rounded-md relative z-20 flex justify-center bg-white transition-all duration-500 sm:px-3 lg:px-3 2xl:px-3 pt-7">
         <div>
           <div className="flex flex-col sm:flex-row md:flex-col xl:flex-row gap-6 mb-2">
-            <p className="font-Nunito text-TextColor2-0 text-sm sm:text-base flex gap-2 items-center leading-[15px]">
+            {/* <p className="font-Nunito text-TextColor2-0 text-sm sm:text-base flex gap-2 items-center leading-[15px]">
               <span className="text-PrimaryColor-0">{blogDateIcon}</span>
               {blogDate}
-            </p>
-            <p className="font-Nunito text-TextColor2-0 text-sm sm:text-base flex gap-2 items-center leading-[15px]">
+            </p> */}
+            {/* <p className="font-Nunito text-TextColor2-0 text-sm sm:text-base flex gap-2 items-center leading-[15px]">
               <span className="text-PrimaryColor-0 text-xl">{blogTagIcon}</span>
               {blogTag}
-            </p>
+            </p> */}
+           
           </div>
           <Link to={blogUrl}>
             <button className="font-Rajdhani text-left font-semibold text-lg sm:text-[22px] md:text-xl lg:text-base xl:text-xl 2xl:text-[23px] text-HeadingColor-0 transition-all duration-500 group-hover:text-PrimaryColor-0 mt-2 mb-5">
               {blogTitle}
             </button>
           </Link>
+          <p className="mb-5 font-Nunito text-[15px] leading-6 text-TextColor2-0">
+            {blogDesc}
+          </p>
           <Link to={blogUrl} className="inline-block">
             <button className="flex items-center gap-2 text-HeadingColor-0 text-lg font-Rajdhani font-medium transition-all duration-500 group-hover:text-PrimaryColor-0">
               {blogBtn}

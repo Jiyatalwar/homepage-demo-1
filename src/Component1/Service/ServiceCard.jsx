@@ -12,7 +12,7 @@ const ServiceCard = ({
   serviceBtnIcon,
 }) => {
   return (
-    <div className="flex h-full flex-col px-7 sm:px-8 lg:px-7 2xl:px-10 pt-9 pb-[34px] rounded-2xl border border-white/70 bg-[#ffffff] shadow-[0_12px_35px_rgba(12,89,219,0.08)] group relative z-10 overflow-hidden before:absolute before:top-0 before:right-0 before:w-0 before:h-full before:bg-[linear-gradient(to_right,#2b5876_0%,#182848_51%,#182848_100%)] before:-z-10 before:transition-all before:duration-500 hover:before:w-full hover:before:left-0">
+    <div className="service-card-gradient flex h-full flex-col px-7 sm:px-8 lg:px-7 2xl:px-10 pt-9 pb-[34px] rounded-2xl border border-white/70 bg-[#ffffff] shadow-[0_12px_35px_rgba(12,89,219,0.08)] group relative z-10 overflow-hidden before:absolute before:top-0 before:right-0 before:w-0 before:h-full before:-z-10 before:transition-all before:duration-500 hover:before:w-full hover:before:left-0">
       <div className="relative pt-[6px] z-10 before:absolute before:top-0 before:-left-[6px] before:w-10 before:h-10 before:bg-PrimaryColor-0 before:transition-all before:duration-500 before:opacity-20 group-hover:before:bg-SecondaryColor-0 group-hover:before:opacity-30 before:rounded-full before:-z-10">
         <img
           src={serviceIcon}
