@@ -57,8 +57,8 @@ const solutionData = [
 const Solution = () => {
   return (
     <section className="relative overflow-hidden bg-[#f4f7fb] py-24">
-      <div className="pointer-events-none absolute -left-32 top-10 h-72 w-72 rounded-full bg-[#3565ad]/10 blur-3xl" />
-      <div className="pointer-events-none absolute -right-32 bottom-10 h-72 w-72 rounded-full bg-sky-400/10 blur-3xl" />
+      <div className="pointer-events-none absolute -left-32 top-10 h-72 w-72 rounded-full bg-[#ffffff]/10 blur-3xl" />
+      <div className="pointer-events-none absolute -right-32 bottom-10 h-72 w-72 rounded-full bg-[#ffffff]/10 blur-3xl" />
 
       <div className="Container relative z-10">
         <div className="mx-auto mb-14 max-w-3xl text-center">

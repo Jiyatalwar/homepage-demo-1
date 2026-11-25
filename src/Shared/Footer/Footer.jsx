@@ -6,6 +6,14 @@ import {
 import { HiOutlineMail } from "react-icons/hi";
 import { FaPhoneAlt, FaYoutube, FaInstagram } from "react-icons/fa";
 
+const footerGradientStyle = {
+  background: "linear-gradient(135deg, #020344 0%, #3565ad 100%)",
+  backgroundClip: "text",
+  WebkitBackgroundClip: "text",
+  color: "transparent",
+  WebkitTextFillColor: "transparent",
+};
+
 const footerColumns = [
   {
     title: "Solutions",
