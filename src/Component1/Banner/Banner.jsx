@@ -8,7 +8,7 @@ const slidesData = [
   {
     id: 1,
     bgImage:
-      "https://media.istockphoto.com/id/2172767813/vector/5g-network-wireless-systems-and-internet-technology-concept-smart-city-communication-network.jpg?s=612x612&w=0&k=20&c=-PnCB2YGvReA8XBrLbh6eeELs-FB6LOot6T72uc9rrg=",
+      "/binary-banner/Engineering-Enterprise-Networks.jpg",
     subtitle: "",
     titleLine1: "Engineering Enterprise Networks",
     titleLine2: "for Wi-Fi 7, SD-WAN and NaaS",
@@ -18,7 +18,7 @@ const slidesData = [
   {
     id: 2,
     bgImage:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjLn668e94cVK32fLe1O0PmdayXJ86CtB8vJZ9K-e_YQ&s=10",
+      "/binary-banner/Securing-Every-Endpoint-with-Zero-Trust-and-24×7-SOC.jpg",
     subtitle: "",
     titleLine1: "Securing Every Endpoint",
     titleLine2: "with Zero Trust and 24×7 SOC",
@@ -27,7 +27,7 @@ const slidesData = [
   {
     id: 3,
     bgImage:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxMMtcyxBfG8OJamKBqL1XDgEpll7e8W0GwrxiBfdZRPXYTQ3FLF3LMrlq&s=10",
+      "/binary-banner/Building-AI-Ready-Data-Platforms-on-HCI-and-Hybrid-Storage.jpg",
     subtitle: "",
     titleLine1: "Building AI-Ready Data",
     titleLine2: "Platforms on HCI and Hybrid Storage",
@@ -36,7 +36,7 @@ const slidesData = [
   {
     id: 4,
     bgImage:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSn95959vXYFn3l0LD05_EdEZFHMYvCJT8nTTiy5is2Q&s=10",
+      "/binary-banner/Accelerating-Hybrid-Cloud-Migration-with-FinOps-and-DevOps.jpg",
     subtitle: "",
     titleLine1: "Accelerating Hybrid Cloud Migration",
     titleLine2: "with FinOps and DevOps",
@@ -45,7 +45,7 @@ const slidesData = [
   {
     id: 5,
     bgImage:
-      "https://techteamsynergy.com/wp-content/uploads/2025/03/ChatGPT-Image-Aug-25-2026-09_22_11-AM-e1787646336614.webp",
+      "/binary-banner/elivering-End-to-End-IT-Infrastructure-and-Managed-Services-Across-India.jpg",
     subtitle: "",
     titleLine1: "Delivering End-to-End IT Infrastructure",
     titleLine2: "and Managed Services Across India",
@@ -139,7 +139,7 @@ const Banner = () => {
           </div>
 
           {/* Previous & Next Buttons */}
-          <div className="mt-8 flex items-center gap-4">
+          <div className="mt-8 flex items-center gap-4">  
             <button
               type="button"
               onClick={handlePrev}
