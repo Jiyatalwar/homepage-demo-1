@@ -115,7 +115,7 @@ const Banner = () => {
             </h1>
 
             {/* Description */}
-            <p className="mt-3 min-h-[4rem] mb-10 max-w-[750px] font-['Rajdhani'] text-lg font-medium leading-[1.6] tracking-[0.01em] text-white/90 sm:mb-[46px] sm:text-xl">
+            <p className="mt-3 mb-2 min-h-[4rem] max-w-[750px] font-['Rajdhani'] text-lg font-medium leading-[1.6] tracking-[0.01em] text-white/90 sm:text-xl">
               {desc}
             </p>
           </div>
