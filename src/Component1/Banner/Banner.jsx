@@ -73,22 +73,43 @@ const Banner = () => {
     );
   };
 
+  // Preload and decode every banner image so slide changes never flash gray.
+  useEffect(() => {
+    slidesData.forEach((slide) => {
+      const image = new Image();
+      image.src = slide.bgImage;
+      if (image.decode) {
+        image.decode().catch(() => {});
+      }
+    });
+  }, []);
+
   // Auto Slide
   useEffect(() => {
     const timer = setInterval(() => {
       handleNext();
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(timer);
   }, [currentSlide]);
 
   return (
-    <section
-      style={{
-        backgroundImage: `url(${activeData.bgImage})`,
-      }}
-      className="relative z-10 flex h-[600px] items-center overflow-hidden bg-cover bg-[position:65%_center] bg-no-repeat transition-all duration-700 sm:h-[750px] sm:bg-center lg:h-[660px] xl:h-[800px]"
-    >
+    <section className="relative z-10 flex h-[600px] items-center overflow-hidden bg-[#071642] sm:h-[750px] lg:h-[660px] xl:h-[800px]">
+      {slidesData.map((slide, index) => (
+        <img
+          key={slide.id}
+          src={slide.bgImage}
+          alt=""
+          aria-hidden="true"
+          draggable="false"
+          decoding="async"
+          fetchPriority={index === 0 ? "high" : "low"}
+          className={`absolute inset-0 h-full w-full object-cover object-[65%_center] transition-opacity duration-700 sm:object-center ${
+            index === currentSlide ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      ))}
+
       {/* Dark Overlay */}
       <div className="absolute inset-0 z-0 bg-black/45" />
 
