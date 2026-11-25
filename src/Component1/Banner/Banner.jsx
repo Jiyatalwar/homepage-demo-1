@@ -13,7 +13,7 @@ const slidesData = [
     titleLine1: "Engineering Enterprise Networks",
     titleLine2: "for Wi-Fi 7, SD-WAN and NaaS",
     description:
-      "Professionally optimize interdependent intellectual interoperable connect best practices. Progressively fabricate done.",
+      "Always Connected. Always Optimised.",
   },
   {
     id: 2,
