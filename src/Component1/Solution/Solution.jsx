@@ -1,118 +1,98 @@
 import { Link } from "react-router-dom";
-import {
-  FaArrowRight,
-  FaCloud,
-  FaHeadset,
-  FaNetworkWired,
-  FaPuzzlePiece,
-  FaShieldHalved,
-  FaWallet,
-} from "react-icons/fa6";
+import { FaArrowRight } from "react-icons/fa6";
 
 const solutionData = [
   {
-    id: "01",
-    title: "Flexible IT consumption",
+    title: "BFSI & E-Commerce",
     description:
-      "Capex, opex or as-a-service across devices, storage, network and full infrastructure, so refresh cycles stop waiting on budget cycles",
-    icon: <FaWallet />,
+      "Low-latency, RBI and SEBI-aligned security for banks, NBFCs, fintech and digital commerce.",
   },
   {
-    id: "02",
-    title: "Cloud on your terms",
+    title: "IT / ITES",
     description:
-      "Public, private, hybrid and multi-cloud, with honest migration assessment and FinOps cost control once the workloads are running",
-    icon: <FaCloud />,
+      "Secure hybrid workplaces, collaboration and scalable data center capacity.",
   },
   {
-    id: "03",
-    title: "Managed services with names on them",
+    title: "Global Capability Centers",
     description:
-      "A dedicated NOC and SOC staffed in India, with agreed SLAs, named engineers and monthly reporting a regulator would accept",
-    icon: <FaHeadset />,
+      "GCC IT infrastructure set-up, from network and security to managed operations.",
   },
   {
-    id: "04",
-    title: "Cybersecurity built into the design",
+    title: "Manufacturing",
     description:
-      "Zero trust architecture, endpoint and data protection engineered in from the first session, then monitored round the clock from our own security operations centre",
-    icon: <FaShieldHalved />,
+      "Industrial Wi-Fi, IoT and OT security for connected, always-on plants.",
   },
   {
-    id: "05",
-    title: "Converged IT infrastructure",
+    title: "Media & Entertainment",
     description:
-      "Enterprise networking, wireless, compute, storage and collaboration delivered as a single estate rather than five separate procurements",
-    icon: <FaNetworkWired />,
+      "High-throughput storage, HCI and secure cloud for content production and delivery.",
   },
   {
-    id: "06",
-    title: "System integration, end to end",
+    title: "Oil & Gas",
     description:
-      "One partner from infrastructure assessment and design through implementation to day-two operations, so nothing is lost in a handover between vendors",
-    icon: <FaPuzzlePiece />,
+      "Resilient connectivity, industrial IoT and real-time security monitoring for remote sites.",
+  },
+  {
+    title: "Service Providers",
+    description:
+      "Carrier-grade networking, multi-cloud management and 24×7 security for ISPs, CDNs and telecom.",
+  },
+  {
+    title: "Healthcare & Education",
+    description:
+      "Secure campus networks and data protection for patient, student and research records.",
   },
 ];
 
 const Solution = () => {
   return (
-    <section className="relative overflow-hidden bg-[#f4f7fb] py-24">
-      <div className="pointer-events-none absolute -left-32 top-10 h-72 w-72 rounded-full bg-[#ffffff]/10 blur-3xl" />
-      <div className="pointer-events-none absolute -right-32 bottom-10 h-72 w-72 rounded-full bg-[#ffffff]/10 blur-3xl" />
-
+    <section className="relative overflow-hidden bg-[#f4f7fb] py-10 sm:py-12 lg:py-14">
+      {/* Add a background image here when one is provided. */}
       <div className="Container relative z-10">
-        <div className="mx-auto mb-14 max-w-3xl text-center">
-          <p className="mb-3 font-Rajdhani text-lg font-bold uppercase tracking-[0.18em] text-[#3565ad]">
-            Why Choose Us
+        <div className="relative mx-auto mb-10 max-w-[560px] text-center sm:mb-12">
+          <p className="mb-3 flex items-center justify-center gap-2 font-Rajdhani text-xs font-bold uppercase tracking-[0.2em] text-[#3565ad] sm:text-sm">
+            <span className="h-px w-6 bg-[#3565ad]" />
+            Industries We Serve
           </p>
-          <h2 className="font-Rajdhani font-bold text-[36px] sm:text-[48px] md:text-[52px] lg:text-[48px] xl:text-[54px] 2xl:text-[58px] leading-[1.12] tracking-[-0.025em] text-[#08132b]">
-            Technology built around
-            <span
-              className="block"
-              style={{
-                background:
-                  "linear-gradient(135deg, #355F91 0%, #5A90C9 50%, #8EC5FC 100%)",
-                backgroundClip: "text",
-                WebkitBackgroundClip: "text",
-                color: "transparent",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              your business goals
+          <h2 className="font-Rajdhani text-[36px] font-bold leading-[1.1] tracking-[-0.025em] text-[#08132b] sm:text-[48px] md:text-[52px] lg:text-[48px] xl:text-[54px] 2xl:text-[58px]">
+            <span className="block">
+              Domain{" "}
+              <span className="bg-gradient-to-r from-[#176ed0] to-[#2b8cff] bg-clip-text text-transparent">
+                Expertise.
+              </span>
+            </span>
+            <span className="block">
+              Built Into Every{" "}
+              <span className="bg-gradient-to-r from-[#176ed0] to-[#2b8cff] bg-clip-text text-transparent">
+                Solution.
+              </span>
             </span>
           </h2>
+          <p className="mx-auto mt-5 max-w-[540px] text-center font-Nunito text-base leading-[1.55] text-[#66748b] sm:text-lg">
+            Tailored solutions shaped around the regulations, risks and
+            workloads of each sector, from infrastructure design to managed
+            operations.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {solutionData.map((solution) => (
             <Link
               to="/service_details"
-              key={solution.id}
-              className="group relative min-h-[270px] overflow-hidden rounded-2xl border border-white bg-white p-8 shadow-[0_18px_45px_rgba(33,75,120,0.10)] transition-all duration-500 hover:-translate-y-2 hover:border-[#3565ad]/20 hover:shadow-[0_24px_55px_rgba(33,75,120,0.18)]"
+              key={solution.title}
+              className="group flex min-h-[235px] flex-col rounded-xl border border-[#e1e8f1] bg-white p-6 shadow-[0_8px_20px_rgba(27,57,94,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-[#b8cdea] hover:shadow-[0_14px_28px_rgba(27,57,94,0.1)]"
             >
-              <div
-                className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100"
-                style={{
-                  background:
-                    "linear-gradient(135deg, #355F91 0%, #5A90C9 50%, #8EC5FC 100%)",
-                }}
-              />
-
-              <div className="mb-8 flex items-start justify-between">
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#edf3fa] text-2xl text-[#3565ad] transition-all duration-500 group-hover:bg-[#3565ad] group-hover:text-white group-hover:rotate-3">
-                  {solution.icon}
-                </div>
-                <span className="font-Rajdhani text-4xl font-bold text-[#dfe7f1] transition-colors duration-500 group-hover:text-[#b7cce4]">
-                  {solution.id}
-                </span>
-              </div>
-
-              <h3 className="mb-3 font-Rajdhani text-[26px] font-bold leading-tight text-[#08132b]">
+              <span className="mb-3 h-[2px] w-6 bg-[#3565ad] transition-all duration-300 group-hover:w-10" />
+              <h3 className="font-Rajdhani text-lg font-bold leading-tight text-[#10234b] sm:text-xl">
                 {solution.title}
               </h3>
-              <p className="mb-6 font-Rajdhani text-lg leading-7 text-[#667085]">
+              <p className="mt-2 flex-1 font-Nunito text-sm leading-[1.55] text-[#66748b]">
                 {solution.description}
               </p>
+              <span className="mt-4 flex items-center justify-between border-t border-[#edf1f6] pt-3 font-Nunito text-xs font-bold text-[#3565ad]">
+                Explore solutions
+                <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
             </Link>
           ))}
         </div>

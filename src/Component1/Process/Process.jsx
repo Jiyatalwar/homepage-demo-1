@@ -12,9 +12,9 @@ const processData = [
     processImg: processImg,
     boxNumber1: "01",
     boxShape: boxShape,
-    processTitle: "Start A Project",
+    processTitle: "Discover",
     processDesc:
-      "Proactively drive maintainable value next mission-critical infrastructures done the new business to planning",
+      "Infrastructure, security posture and cloud-readiness assessment",
   },
 
   {
@@ -22,17 +22,26 @@ const processData = [
     processImg: processImg2,
     boxNumber1: "02",
     boxShape: boxShape2,
-    processTitle: "Project Analysis",
+    processTitle: "Architect",
     processDesc:
-      "Proactively drive maintainable value next mission-critical infrastructures done the new business to planning",
+      "Outcome-led architecture with security built in by design",
   },
   {
     id: 3,
     processImg: processImg3,
     boxNumber1: "03",
-    processTitle: "Deliver to Succes",
+    boxShape: boxShape,
+    processTitle: "Deploy",
     processDesc:
-      "Proactively drive maintainable value next mission-critical infrastructures done the new business to planning",
+      "End-to-end system integration across network, compute, storage and cloud",
+  },
+  {
+    id: 4,
+    processImg: processImg3,
+    boxNumber1: "04",
+    processTitle: "Operate & Protect",
+    processDesc:
+      "24×7 managed NOC and SOC from India, with SLAs, named engineers and monthly reporting",
   },
 ];
 
@@ -41,15 +50,15 @@ const Process = () => {
     <section className="pb-10 relative bg-SecondaryColor-0 z-10 ">
       <div className="Container">
         <div className="text-center">
-          <h5 className="font-Rajdhani text-lg font-semibold text-PrimaryColor-0">
-            Working Process
+          <h5 className="font-Rajdhani text-lg font-semibold text-white">
+           THE BINARY GLOBAL OPERATING MODEL
           </h5>
           <h1 className="font-Rajdhani font-bold text-xl leading-7 sm:text-[34px] sm:leading-[44px] md:text-[44px] md:leading-[54px] lg:text-[32px] lg:leading-[42px] xl:text-[36px] xl:leading-[46px] 2xl:text-[42px] 2xl:leading-[52px] text-white mt-[18px]">
-            We Follow the Easy Working Steps
+           We Follow the Easy Working Steps
           </h1>
         </div>
         <div className="pb-16 mt-[60px]">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-7 gap-y-10">
+          <div className="grid grid-cols-1 items-stretch md:grid-cols-2 lg:grid-cols-4 gap-x-7 gap-y-10">
             {processData.map(
               ({
                 id,

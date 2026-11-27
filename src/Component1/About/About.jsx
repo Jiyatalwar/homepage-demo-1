@@ -14,7 +14,7 @@ const About = () => {
   return (
     <section className="relative overflow-hidden bg-white py-12 sm:py-16 lg:py-20">
       {/* =====================================================================
-          START: ANIMATED MODERN TECH BACKGROUND (White BG के ऊपर)
+          START: ANIMATED MODERN TECH BACKGROUND 
       ====================================================================== */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         {/* 1. Subtle Architectural Grid */}
@@ -150,9 +150,7 @@ const About = () => {
         {/* TOP HERO GRID */}
         <div className="grid items-center gap-10 lg:grid-cols-[44%_56%] lg:gap-4">
           {/* =====================================================================
-              3D VECTOR ILLUSTRATION STAGE (Auto-Moving)
-              * भविष्य में अपनी Image लगाने के लिए इस block को बदल सकते हैं:
-              * Recommended Image Size: 1040px x 700px (Aspect Ratio 3:2)
+           
           ====================================================================== */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}

@@ -7,14 +7,16 @@ const ProcessCard = ({
   processDesc,
 }) => {
   return (
-    <div className="text-center group relative">
+    <div className="group relative h-full text-center">
       <div className="inline-block m-auto relative z-10 before:absolute before:-top-[13px] before:-left-[13px] before:w-[242px] before:h-[242px] before:border-[2px] before:border-dashed before:border-PrimaryColor-0 before:rounded-full before:animate-rotate">
         <img src={processImg} draggable="false" />
-        <img
-          src={boxShape}
-          draggable="false"
-          className="absolute top-1/2 -translate-y-1/2 -right-[150px] 2xl:-right-[180px] hidden xl:block"
-        />
+        {boxShape && (
+          <img
+            src={boxShape}
+            draggable="false"
+            className="absolute top-1/2 z-20 hidden h-10 w-20 -translate-y-1/2 -right-[48px] object-contain xl:block 2xl:-right-[62px]"
+          />
+        )}
         <h6 className="w-[48px] h-[48px] rounded-full bg-PrimaryColor-0 text-white font-Rajdhani font-medium text-[22px] flex justify-center items-center absolute top-0 left-0">
           {boxNumber1}
         </h6>

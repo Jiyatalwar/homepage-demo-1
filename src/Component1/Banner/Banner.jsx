@@ -48,7 +48,7 @@ const slidesData = [
       "/binary-banner/elivering-End-to-End-IT-Infrastructure-and-Managed-Services-Across-India.jpg",
     subtitle: "",
     titleLine1: "Delivering End-to-End IT Infrastructure",
-    titleLine2: "and Managed Services Across India",
+    titleLine2: "and Managed Services ",
     description: "One Partner. Every Layer.",
   },
 ];
